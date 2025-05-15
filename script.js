@@ -23462,6 +23462,7 @@ let action = document.getElementById('action')
 let comedie = document.getElementById('comedie')
 let thriller = document.getElementById('thriller')
 let random = document.getElementById('random')
+let generator= document.getElementById("generator")
 
 
 function afficherFilm() {
@@ -23498,6 +23499,35 @@ thriller.addEventListener("click", function() {
 random.addEventListener("click", function() {
     afficherFilm(generator)
 })
+
+
+
+   
+let titre = document.getElementById('title');
+let poster = document.getElementById('poster');
+let annee = document.getElementById('annee');
+let genres = document.getElementById('genres');
+let histoire = document.getElementById('description');
+
+function creerFilm(unFilm) {
+  
+
+    let divCarte = `   <div class="carte">
+            <div id="title">${titre} </div>
+            <div id="annee">${annee} </div>
+            <div id="poster"><img src= ${poster} alt="image">
+            </div>
+            <div id="genres">${genres}</div>
+            <div id="description">${histoire}</div>
+       
+      </div>`
+    generator.insertAdjacentHTML("afterbegin", divCarte)
+
+}
+
+listeFilms.forEach(unFilm => {
+  creerFilm(unFilm);
+});
 
 
 //Faire un bouton qui permet de choisir un film aléatoire à regarder ce soir
